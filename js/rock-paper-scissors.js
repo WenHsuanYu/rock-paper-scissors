@@ -3,7 +3,6 @@ function getComputerChoice() {
     const randomNumber = Math.floor(Math.random() * 3);
     return choices[randomNumber];
 }
-// console.log(getComputerChoice());
 
 function playRound(playerSelection, computerSelection) {
 
@@ -20,14 +19,31 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
-let playerSelection = prompt("Choose one of rock, paper and scissor", "rock");
-playerSelection = playerSelection.toLowerCase();
-if (playerSelection === null) {
-    alert("Invalid input");
+function game()
+{
+    let playerScore = 0;
+    let computerScore = 0;
+    for (let i = 0; i < 5; i++) {
+        let playerSelection = prompt("Choose one of rock, paper and scissor", "rock");
+        playerSelection = playerSelection.toLowerCase();
+        if (playerSelection === null) {
+            alert("Invalid input");
+        }
+        if (playerSelection === 'rock' || playerSelection === 'paper' || playerSelection === 'scissors') {
+            const computerSelection = getComputerChoice();
+            const result = playRound(playerSelection, computerSelection);
+            console.log(result);
+            if (result.includes('win')) {
+                playerScore++;
+            } else if (playRound(playerSelection, computerSelection).includes('lose')) {
+                computerScore++;
+            }
+            console.log("Player score: " + playerScore + " Computer score: " + computerScore);
+        } else {
+            alert("Invalid choice");
+        }
+    
+    }
 }
-if (playerSelection === 'rock' || playerSelection === 'paper' || playerSelection === 'scissors') {
-    const computerSelection = getComputerChoice();
-    console.log(playRound(playerSelection, computerSelection));
-} else {
-    alert("Invalid choice");
-}
+
+game();
