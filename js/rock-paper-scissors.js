@@ -30,9 +30,8 @@ function getScores()
         scores.item(0).textContent = "Player score: " + playerScore;
         scores.item(1).textContent = "Computer score: " + computerScore;
     } else {
-        playerScore = computerScore = 0;
-        scores.item(0).textContent = "Player score: " + playerScore;
-        scores.item(1).textContent = "Computer score: " + computerScore;
+        scores.item(0).textContent = "Player score: 0";
+        scores.item(1).textContent = "Computer score: 0";
     }
 }
 
@@ -40,16 +39,18 @@ function playGame()
 {
     const computerSelection = getComputerChoice();
     const result = playRound(playerSelection, computerSelection);
-    const output = document.querySelector('.result');
-    output.textContent = "The result is: " +result;
-    GetScores();
+    const output = document.querySelector('.result div');
+    output.textContent = "The result is: " + result;
+    getScores();
     if (playerScore === 5) {
-        output.textContent = "You win the game!";
+        playerScore = computerScore = 0;
+        output.textContent = "Finally, you win the game!";
     } else if (computerScore === 5) {
-        output.textContent = "You lose the game!";
+        playerScore = computerScore = 0;
+        output.textContent = "Finally, you lose the game!";
     }
+    
 }
-
 let playerScore = 0;
 let computerScore = 0;
 let playerSelection = ''

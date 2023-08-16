@@ -1,0 +1,58 @@
+html {
+    background-image: url("../img/background.png");
+    background-size: 100% 100%;
+    font-size: 20px;
+    font-family: 'Handjet', "Brush Script MT", cursive;
+}
+
+
+body {
+    display:flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items: center;
+    
+    height: 100vh;
+}
+
+img{
+    width: 125px;
+    height: 150px;  
+}
+
+.btn{
+    margin: 50px;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background-color: aliceblue;
+    outline: dashed red;
+}
+
+h1 {
+    margin-bottom: 50px;
+}
+
+.container-of-scores
+{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size:30px;
+    padding: 50px;
+}
+
+.score {
+    padding: 50px;
+}
+
+.result div{
+    font-size: 45px;
+    margin-bottom: 50px;
+}
+
+#github-logo {
+    width: 35px;
+    height: 35px;
+    margin-bottom: -9px;
+}
